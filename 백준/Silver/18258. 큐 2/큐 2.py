@@ -1,38 +1,31 @@
-# 큐
 import sys
 from collections import deque
-
+qu = deque()
 N = int(sys.stdin.readline())
-queue = deque([])
 
-for i in range(N):
+for _ in range(N):
     com = sys.stdin.readline().split()
     if com[0] == 'push':
-        queue.append(com[1])
+        qu.append(com[1])
     elif com[0] == 'pop':
-        if len(queue) == 0:
-            print(-1)
+        if qu:
+            print(qu.popleft()) # 가장 앞에 있는 정수 빼기
         else:
-            print(queue.popleft())
+            print(-1)
     elif com[0] == 'size':
-        print(len(queue))
+        print(len(qu))
     elif com[0] == 'empty':
-        if len(queue) == 0:
-            print(1)
-        else:
+        if qu:
             print(0)
+        else:
+            print(1)
     elif com[0] == 'front':
-        if len(queue) == 0:
-            print(-1)
+        if qu:
+            print(qu[0]) # 맨 앞 정수 출력
         else:
-            print(queue[0]) # 맨 앞 정수 출력
+            print(-1)
     elif com[0] == 'back':
-        if len(queue) == 0:
-            print(-1)
+        if qu:
+            print(qu[-1])
         else:
-            print(queue[-1])
-
-
-
-
-
+            print(-1)
