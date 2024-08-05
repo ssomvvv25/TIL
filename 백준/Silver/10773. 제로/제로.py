@@ -1,16 +1,14 @@
-# 스택을 이용하면 될 듯
+# 스택 이용
 import sys
-st = [] # 빈 스택
+K = int(sys.stdin.readline())
 
-k = int(sys.stdin.readline())
+st = []
 
-for i in range(k):
-    num = int(input())
+for _ in range(K):
+    num = int(sys.stdin.readline())
+
     if num == 0:
         st.pop()
     else:
         st.append(num)
-total = 0
-for i in st:
-    total += i
-print(total)
+print(sum(st))
